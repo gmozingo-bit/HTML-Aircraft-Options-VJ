@@ -1,0 +1,342 @@
+/* --- SCROLL SNAP LANDING PAGE STYLES --- */
+
+/* Apply scroll snap to the main page */
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+/* Title Section - First Snap Point */
+.ao-heading {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Scroll Snap Container - now part of main page flow */
+.scroll-snap-container {
+  width: 100%;
+  margin-top: 4rem; /* Space after the title section */
+}
+
+/* Each Aircraft Section */
+.aircraft-snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Image Wrapper */
+.aircraft-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Aircraft Image - Full Width */
+.aircraft-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Navy Blue Overlay */
+.navy-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 32, 96, 0.4); /* Navy blue with 40% opacity */
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Aircraft Info Corner Section */
+.aircraft-info-corner {
+  position: relative;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem;
+  max-width: 500px;
+  margin-left: 4rem;
+  margin-top: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.aircraft-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.aircraft-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.aircraft-specs {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.aircraft-specs .badge {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+}
+
+.line-margin-top-xs {
+  margin: 1.5rem 0;
+  border-color: #ddd;
+}
+
+.btn-newsletter {
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn-newsletter:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.separator {
+  margin-bottom: 1rem;
+}
+
+/* --- MOBILE RESPONSIVE STYLES --- */
+
+@media (max-width: 768px) {
+  .scroll-snap-container {
+    margin-top: 2rem; /* Less space on mobile */
+  }
+
+  .aircraft-info-corner {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    max-width: calc(100% - 3rem);
+  }
+
+  .aircraft-title {
+    font-size: 1.8rem;
+  }
+
+  .aircraft-description {
+    font-size: 1rem;
+  }
+
+  .aircraft-specs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .aircraft-specs .badge {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 575px) {
+  .aircraft-info-corner {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1.25rem;
+    max-width: calc(100% - 2rem);
+  }
+
+  .aircraft-title {
+    font-size: 1.5rem;
+  }
+
+  .aircraft-description {
+    font-size: 0.95rem;
+  }
+}
+
+/* --- PRESERVED: ORIGINAL HEADING STYLES --- */
+@media (max-width: 414px) { 
+  .ao-heading {
+    height: 16rem !important;
+  } 
+}
+
+/* --- PRESERVED: ORIGINAL VIDEO & HEADER STYLES FROM UNTITLED-2 --- */
+
+@keyframes heroFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.video-container {
+    animation: heroFadeIn 1.5s ease-in-out;
+    background-color: #000; 
+    overflow: hidden;
+    height: calc(100vh - 90px) !important; 
+    width: 100vw !important;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.video-hero {
+    width: 100vw !important;
+    height: calc(100vh - 90px) !important; 
+    display: block;
+    object-fit: cover !important; 
+    object-position: center 30%; 
+    min-width: 100% !important; 
+    min-height: 100% !important;
+    transform: scale(1.02); 
+}
+
+/* For desktop devices */
+@media (min-width: 768px) {
+    .mobile-image {
+        display: none;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 867px) {
+    .desktop-image {
+        display: none;
+    }
+    
+    .mobile-image img {
+        padding-bottom: 60px;
+        padding-top: -20px;
+    }
+
+    img[src*="wing-valley-edit-scaled.jpeg"],
+    .pricing-paragraph,
+    .aircraft-paragraph {
+        margin-bottom: -60px;
+    }
+
+    .aircraft-paragraph {
+        margin-top: 20px;
+    }
+
+    .video-container {
+        display: none !important;
+    }
+
+    .container.mt-5 {
+        margin-top: 6rem !important;
+        margin-bottom: 6rem !important;
+    }
+
+    .carousel-inner .carousel-item img {
+        margin-top: 30px;
+    }
+
+    #brands {
+        background: #f5f6f8;
+        border-radius: 12px;
+        padding: 24px 16px;
+        box-shadow: 0 6px 18px rgba(0,0,0,.05);
+        margin: 20px 0;
+    }
+
+    #brands h2 {
+        margin: 0 0 1rem;
+        text-align: center;
+    }
+
+    #brands .carousel-inner img {
+        max-width: 80%;
+        height: auto;
+    }
+}
+
+/* Hide carousel arrows universally */
+.carousel-control-prev, 
+.carousel-control-next {
+    display: none !important;
+}
+
+/* Header/Logo fixes */
+@media only screen and (max-width: 768px) {
+    .site-logo, .site-branding, .custom-logo-link, .navbar-brand {
+        position: absolute !important;
+        top: 22px !important;
+        left: 20px !important;
+        z-index: 50 !important;
+        width: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .site-logo img, .custom-logo-link img, .navbar-brand img {
+        width: 250px !important; 
+        height: auto !important;
+        max-width: 70vw !important; 
+    }
+
+    button.menu-toggle, button.navbar-toggler, .mobile-menu-toggle, #menu-toggle {
+        position: absolute !important;
+        top: 24px !important;
+        right: 20px !important;
+        display: block !important;
+        z-index: 100 !important;
+        background: transparent !important;
+    }
+
+    .site-header, .navbar, #masthead {
+        min-height: 90px !important;
+        position: relative !important;
+        background: #fff !important;
+        margin-bottom: 0 !important;
+    }
+
+    .elementor-widget-image, .wp-block-image, .img-container img, .main-image {
+        margin-bottom: 60px !important; 
+    }
+
+    .text-section {
+        padding-top: 15px !important;
+    }
+
+    .container.mt-5 {
+        margin-top: 10px !important; 
+        padding-top: 0 !important;
+    }
+    
+    .wrapper, .site-content, .entry-content {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    .col-md-6.col-sm-6 {
+        margin-bottom: 10px !important; 
+    }
+    .card-body {
+        padding: 10px !important; 
+    }
+}
